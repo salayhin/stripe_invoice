@@ -1,6 +1,6 @@
 namespace :stripe_invoice_tasks do
 
-  #=========<$ Task for create PDF  $>=========#
+  #=========<$ Task for create Invoice  $>=========#
   desc 'create invoice every night'
   task create_invoice: :environment do
     begin
