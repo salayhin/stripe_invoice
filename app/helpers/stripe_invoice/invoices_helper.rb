@@ -1,10 +1,10 @@
+# encoding: UTF-8
 module StripeInvoice
   module InvoicesHelper
     
     # nicely formats the amount and currency 
     def format_currency(amount, currency)
       
-      currency = currency.upcase()
       # assuming that all currencies are split into 100 parts is probably wrong
       # on an i18n scale but it works for USD, EUR and LBP
       # TODO fix this maybe?
@@ -17,7 +17,7 @@ module StripeInvoice
       }
       case currency
       when 'EUR'
-        options[:unit] = '€' 
+        options[:unit] = '€'
       when 'LBP'
         options[:unit] = '£'
       when 'USD'
@@ -35,7 +35,7 @@ module StripeInvoice
     def plan_public_name(plan)
       plan = plan.with_indifferent_access
       (plan[:metadata] && 
-        plan [:metadata][:stripe_invoice] && 
+        plan[:metadata][:stripe_invoice] &&
         plan[:metadata][:stripe_invoice][:public_name]) || plan[:name]
     end
   end
